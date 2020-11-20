@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-20T01:03:24.533Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="gHS6IsyXURuPg0GMxuJA" version="13.10.0" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2020-11-20T01:14:42.351Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="qodJuT0gEgy4sUb3xGhH" version="13.10.0" type="github" pages="3">
   <diagram id="2aWxwOaRQO-GsQGC4uGL" name="Full System">
     <mxGraphModel dx="2160" dy="1234" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -694,7 +694,7 @@
         <mxCell id="xd8jeiB_PzKL46n1RB2c-10" value="Effects" style="rounded=1;whiteSpace=wrap;html=1;" parent="rLYrlutYf4oDQX4-TMJ3-1" vertex="1">
           <mxGeometry x="620" y="-480" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="IJVFP1u91dPM5fHXmT3m-1" value="Consider:&lt;br&gt;&amp;nbsp; GCP Cloud Functions - Don&#39;t write our own endpoints but let Google manage it for us&lt;br&gt;&amp;nbsp; &amp;nbsp; Reduces cost (~GCP Free)&lt;br&gt;&amp;nbsp; &amp;nbsp; Reduces complexity (less code for us, less frameworking/ops for us)&lt;br&gt;&amp;nbsp; &amp;nbsp; Increases &quot;lock-in&quot; - once using Cloud Functions, cloud products can&#39;t be switched easily (EX. WalkUp)&lt;br&gt;&amp;nbsp; &amp;nbsp; Emphasises use of GCP/serverless toolchains elsewhere&lt;br&gt;&lt;br&gt;&amp;nbsp; Own server&lt;br&gt;&amp;nbsp; &amp;nbsp; Full control over execution&lt;br&gt;&amp;nbsp; &amp;nbsp; Increases programming overhead&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+        <mxCell id="IJVFP1u91dPM5fHXmT3m-1" value="Consider:&lt;br&gt;&amp;nbsp; GCP Cloud Functions/Azure - Don&#39;t write our own endpoints but let Google manage it for us&lt;br&gt;&amp;nbsp; &amp;nbsp; Reduces cost (~GCP Free)&lt;br&gt;&amp;nbsp; &amp;nbsp; Reduces complexity (less code for us, less frameworking/ops for us)&lt;br&gt;&amp;nbsp; &amp;nbsp; Increases &quot;lock-in&quot; - once using Cloud Functions, cloud products can&#39;t be switched easily (EX. WalkUp)&lt;br&gt;&amp;nbsp; &amp;nbsp; Emphasises use of GCP/serverless toolchains elsewhere&lt;br&gt;&lt;br&gt;&amp;nbsp; Own server&lt;br&gt;&amp;nbsp; &amp;nbsp; Full control over execution&lt;br&gt;&amp;nbsp; &amp;nbsp; Increases programming overhead&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
           <mxGeometry x="40" y="-440" width="360" height="240" as="geometry" />
         </mxCell>
       </root>
