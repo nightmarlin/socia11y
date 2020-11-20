@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-11-20T01:14:42.351Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="qodJuT0gEgy4sUb3xGhH" version="13.10.0" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2020-11-20T11:29:59.878Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36" etag="hKl5SOmTVijNbSfcLMRQ" version="13.9.9" type="github" pages="3">
   <diagram id="2aWxwOaRQO-GsQGC4uGL" name="Full System">
-    <mxGraphModel dx="2160" dy="1234" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2189" dy="1233" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -158,7 +158,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="5CSOeDIHzFjA1cNMsZQ8" name="Frontend">
-    <mxGraphModel dx="2743" dy="1991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2189" dy="1633" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="7B2R37SjORouHpL0cwaK-0" />
         <mxCell id="7B2R37SjORouHpL0cwaK-1" parent="7B2R37SjORouHpL0cwaK-0" />
@@ -357,7 +357,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="8n-t7O78u1MXxceVrSk9" name="Backend">
-    <mxGraphModel dx="1402" dy="1775" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2189" dy="2433" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="rLYrlutYf4oDQX4-TMJ3-0" />
         <mxCell id="rLYrlutYf4oDQX4-TMJ3-1" parent="rLYrlutYf4oDQX4-TMJ3-0" />
@@ -628,7 +628,7 @@
             <mxPoint x="80" y="-510" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="u0Ccpq99o1i4l_rxjjiJ-8" value="NOT US" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="rLYrlutYf4oDQX4-TMJ3-1" vertex="1">
+        <mxCell id="u0Ccpq99o1i4l_rxjjiJ-8" value="NOT NECESSARILY US" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="rLYrlutYf4oDQX4-TMJ3-1" vertex="1">
           <mxGeometry x="55" y="-590" width="90" height="60" as="geometry" />
         </mxCell>
         <mxCell id="u0Ccpq99o1i4l_rxjjiJ-35" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="rLYrlutYf4oDQX4-TMJ3-1" source="u0Ccpq99o1i4l_rxjjiJ-19" target="u0Ccpq99o1i4l_rxjjiJ-21" edge="1">
@@ -694,8 +694,71 @@
         <mxCell id="xd8jeiB_PzKL46n1RB2c-10" value="Effects" style="rounded=1;whiteSpace=wrap;html=1;" parent="rLYrlutYf4oDQX4-TMJ3-1" vertex="1">
           <mxGeometry x="620" y="-480" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="IJVFP1u91dPM5fHXmT3m-1" value="Consider:&lt;br&gt;&amp;nbsp; GCP Cloud Functions/Azure - Don&#39;t write our own endpoints but let Google manage it for us&lt;br&gt;&amp;nbsp; &amp;nbsp; Reduces cost (~GCP Free)&lt;br&gt;&amp;nbsp; &amp;nbsp; Reduces complexity (less code for us, less frameworking/ops for us)&lt;br&gt;&amp;nbsp; &amp;nbsp; Increases &quot;lock-in&quot; - once using Cloud Functions, cloud products can&#39;t be switched easily (EX. WalkUp)&lt;br&gt;&amp;nbsp; &amp;nbsp; Emphasises use of GCP/serverless toolchains elsewhere&lt;br&gt;&lt;br&gt;&amp;nbsp; Own server&lt;br&gt;&amp;nbsp; &amp;nbsp; Full control over execution&lt;br&gt;&amp;nbsp; &amp;nbsp; Increases programming overhead&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
-          <mxGeometry x="40" y="-440" width="360" height="240" as="geometry" />
+        <mxCell id="IJVFP1u91dPM5fHXmT3m-1" value="Consider:&lt;br&gt;&amp;nbsp; GCP Cloud Functions/Azure - Don&#39;t write our own endpoints but let Google manage it for us&lt;br&gt;&amp;nbsp; &amp;nbsp; + Reduces cost (~GCP Free)&lt;br&gt;&amp;nbsp; &amp;nbsp; + Reduces complexity (less code for us, less frameworking/ops for us)&lt;br&gt;&amp;nbsp; &amp;nbsp; - Increases &quot;lock-in&quot; - once using Cloud Functions, cloud products can&#39;t be switched easily (EX. WalkUp)&lt;br&gt;&amp;nbsp; &amp;nbsp; + Emphasises use of GCP/serverless toolchains elsewhere (IE Vision API)&lt;br&gt;&lt;br&gt;&amp;nbsp; Own server&lt;br&gt;&amp;nbsp; &amp;nbsp; + Full control over execution&lt;br&gt;&amp;nbsp; &amp;nbsp; - Increases programming overhead&amp;nbsp;&lt;br&gt;&lt;br&gt;&amp;nbsp; Webpage Only&lt;br&gt;&amp;nbsp; &amp;nbsp; + No need for backend of any kind - all processing is done locally&lt;br&gt;&amp;nbsp; &amp;nbsp; - Unknown quality of local machine&lt;br&gt;&amp;nbsp; &amp;nbsp; - Makes served page &lt;i&gt;much&lt;/i&gt;&amp;nbsp;larger&lt;br&gt;&amp;nbsp; &amp;nbsp; - Backend can&#39;t be used" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" parent="rLYrlutYf4oDQX4-TMJ3-1" vertex="1">
+          <mxGeometry x="-160" y="-480" width="600" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-0" value="Images" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="-640" y="-1160" width="400" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-12" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="tEjips66ukefH_ZKwd8O-1" target="tEjips66ukefH_ZKwd8O-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-13" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="tEjips66ukefH_ZKwd8O-1" target="tEjips66ukefH_ZKwd8O-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-14" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="tEjips66ukefH_ZKwd8O-1" target="tEjips66ukefH_ZKwd8O-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-1" value="Controller" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="-760" y="-1020" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-2" value="Generate an image description" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="-600" y="-1120" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-9" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="tEjips66ukefH_ZKwd8O-3" target="tEjips66ukefH_ZKwd8O-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-3" value="Determine how well parts of an image are contrasted" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="-600" y="-1020" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-16" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="tEjips66ukefH_ZKwd8O-4" target="tEjips66ukefH_ZKwd8O-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-4" value="Recognise contents of an image" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="-400" y="-1080" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-6" value="Evaluate colour combinations within image" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="-400" y="-970" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-8" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="tEjips66ukefH_ZKwd8O-7" target="tEjips66ukefH_ZKwd8O-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-7" value="Determine how easily colourblind users can see the image" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="-600" y="-920" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-17" value="Conversions" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="80" y="-1400" width="320" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-18" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="tEjips66ukefH_ZKwd8O-21" target="tEjips66ukefH_ZKwd8O-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="tEjips66ukefH_ZKwd8O-21" target="tEjips66ukefH_ZKwd8O-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-21" value="Controller" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="-40" y="-1280" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-22" value="Pull plaintext segments out of an image" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="120" y="-1360" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-25" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="tEjips66ukefH_ZKwd8O-26" target="tEjips66ukefH_ZKwd8O-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-26" value="Read characters from an image" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="240" y="-1280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tEjips66ukefH_ZKwd8O-29" value="Pull plaintext segments out of a hypertext segment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+          <mxGeometry x="120" y="-1200" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
