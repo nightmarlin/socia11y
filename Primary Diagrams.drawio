@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-20T11:49:09.690Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36" etag="r7gTBJFMSHLnDp3ysNAo" version="13.9.9" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2020-11-20T11:50:52.494Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36" etag="2aY2zwNI9_wHqBDqWGGf" version="13.9.9" type="github" pages="3">
   <diagram id="2aWxwOaRQO-GsQGC4uGL" name="Full System">
     <mxGraphModel dx="2189" dy="1233" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -357,7 +357,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="8n-t7O78u1MXxceVrSk9" name="Backend">
-    <mxGraphModel dx="3515" dy="2988" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2989" dy="2433" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="rLYrlutYf4oDQX4-TMJ3-0" />
         <mxCell id="rLYrlutYf4oDQX4-TMJ3-1" parent="rLYrlutYf4oDQX4-TMJ3-0" />
@@ -780,7 +780,7 @@
         <mxCell id="jpv7kGtnnPAnAqc-Mtg3-32" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=none;endFill=0;" edge="1" parent="rLYrlutYf4oDQX4-TMJ3-1" source="jpv7kGtnnPAnAqc-Mtg3-4" target="jpv7kGtnnPAnAqc-Mtg3-26">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="jpv7kGtnnPAnAqc-Mtg3-4" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
+        <mxCell id="jpv7kGtnnPAnAqc-Mtg3-4" value="Frontend / API User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
           <mxGeometry x="-1200" y="-400" width="40" height="80" as="geometry" />
         </mxCell>
         <mxCell id="jpv7kGtnnPAnAqc-Mtg3-5" value="Evaluate image properties" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="rLYrlutYf4oDQX4-TMJ3-1">
