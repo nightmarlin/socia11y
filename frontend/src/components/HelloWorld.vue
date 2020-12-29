@@ -16,10 +16,9 @@
         </h1>
 
         <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br />please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank"
-            >Discord Community</a
+          George Moore was here<br>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO" target="_blank"
+            >Super cool website CLICK HERE</a
           >
         </p>
       </v-col>
