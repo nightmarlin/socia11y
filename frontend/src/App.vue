@@ -1,53 +1,41 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="black" dark>
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <h2>SOCIA11Y</h2>
       </div>
 
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://github.com/Nightmarlin/socia11y"
         target="_blank"
         text
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        <span class="mr-2">SOCIA11Y repository</span>
+        <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <Counter />
+      <v-divider></v-divider>
+      <Developers />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import Counter from "./components/Counter.vue";
+import Developers from "./components/Developers.vue";
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    HelloWorld
+    Counter,
+    Developers,
   },
 
   data: () => ({
@@ -55,3 +43,13 @@ export default Vue.extend({
   })
 });
 </script>
+
+<style scoped>
+.v-main {
+  margin-top: 25px;
+}
+.v-divider {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+</style>
