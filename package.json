@@ -1,0 +1,13 @@
+{
+  "name": "socia11y",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Nightmarlin/socia11y",
+  "author": "N-VWLS",
+  "license": "MIT",
+  "private": true,
+  "engineStrict": true,
+  "engines": {
+    "node": "12.16.3"
+  }
+}
