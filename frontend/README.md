@@ -1,29 +1,17 @@
-# frontend
+# Frontend
 
-## Project setup
+## Commands
 
-```bash
-yarn install
-```
+| CMD              | Action                                   | Aliases |
+| ---------------- | ---------------------------------------- | ------- |
+| `yarn install`   | Installs dependencies                    | `yarn`  |
+| `yarn serve`     | Starts the dev server in hot-reload mode |         |
+| `yarn build`     | Builds a prod-ready version of the site  |         |
+| `yarn test:unit` | Runs unit tests                          |         |
 
-### Compiles and hot-reloads for development
+> For all commands except `yarn install`, you can use `yarn run <CMD>` if the name clashes with a
+> built-in command
 
-```bash
-yarn serve
-```
-
-### Compiles and minifies for production
-
-```bash
-yarn build
-```
-
-### Run your unit tests
-
-```bash
-yarn test:unit
-```
-
-### Customize configuration
+## Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).

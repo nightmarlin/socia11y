@@ -20,10 +20,11 @@
   - allows us to control gcloud from our machines
   - Install from <https://cloud.google.com/sdk/docs/install>
 
-## Suggested VSCode extensions
+## VSCode extensions
 
 - ESLint & TSLint: static analysis
-- Prettier: Code Formatter
+- Prettier - Code Formatter: auto-formatter
+- Vetur: VSCode
 - Optional - recommended for QoL:
   - markdownlint: markdown doc writing
   - Markdown All In One: markdown doc writing
