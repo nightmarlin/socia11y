@@ -9,5 +9,6 @@
   "engineStrict": true,
   "engines": {
     "node": "12.16.3"
-  }
+  },
+  "prettier": {}
 }
