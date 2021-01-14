@@ -37,5 +37,9 @@
   ],
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": "12.16.3"
   }
 }
