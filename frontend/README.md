@@ -1,23 +1,28 @@
 # frontend
 
-## setup
+## Project setup
 
-1. Install:
-   - Yarn
-   - NVM
-   - Vue CLI
-2. Run `yarn serve` in this directory
-3. Happy developing
+```bash
+yarn install
+```
 
-## commands
+### Compiles and hot-reloads for development
 
-| Command          | Purpose                                               |
-| ---------------- | ----------------------------------------------------- |
-| `yarn install`   | Install latest dependencies                           |
-| `yarn serve`     | Start up the local server with hot-reloading          |
-| `yarn build`     | Build a production ready minified version of the page |
-| `yarn test:unit` | Run unit tests                                        |
-| `yarn lint`      | Run static analysis & fix files                       |
+```bash
+yarn serve
+```
+
+### Compiles and minifies for production
+
+```bash
+yarn build
+```
+
+### Run your unit tests
+
+```bash
+yarn test:unit
+```
 
 ### Customize configuration
 
