@@ -45,15 +45,16 @@ reading now!
 
 ## Useful Commands
 
-| Command              | Description                                                     |
-| -------------------- | --------------------------------------------------------------- |
-| yarn build:frontend  | Build only the frontend                                         |
-| yarn build:functions | Build only the backend                                          |
-| yarn full-deploy     | Deploy all contents of repo in current state to firebase        |
-| yarn full-install    | Install all dependencies in all packages                        |
-| yarn serve:frontend  | Serve only the frontend                                         |
-| yarn serve:functions | Serve only the backend                                          |
-| yarn start           | Emulate firebase hosting and functions for frontend and backend |
+| Command                          | Description                                                     |
+| -------------------------------- | --------------------------------------------------------------- |
+| yarn build:frontend              | Build only the frontend                                         |
+| yarn build:functions             | Build only the backend                                          |
+| yarn full-deploy                 | Deploy all contents of repo in current state to firebase        |
+| yarn full-install                | Install all dependencies in all packages                        |
+| yarn serve:frontend              | Serve only the frontend                                         |
+| yarn serve:functions             | Serve only the backend                                          |
+| yarn start                       | Emulate firebase hosting and functions for frontend and backend |
+| firebase deploy --only functions | Build and deploy firebase functions                             |
 
 > Domain-specific commands can be found in the corresponding README
 
