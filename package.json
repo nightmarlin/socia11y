@@ -10,5 +10,18 @@
   "engines": {
     "node": "12.16.3"
   },
-  "prettier": {}
+  "scripts": {
+    "build:frontend": "cd ./frontend; yarn run build; cd ../",
+    "serve:frontend": "cd ./frontend; yarn run serve; cd ../",
+    "build:functions": "cd ./functions; yarn run build; cd ../",
+    "serve:functions": "cd ./functions; yarn run serve; cd ../",
+    "start": "yarn build:frontend && yarn build:functions && firebase emulators:start",
+    "full-install": "yarn && cd ./functions && yarn && cd ../frontend && yarn && cd ../",
+    "full-deploy": "yarn build:functions && yarn build:frontend && firebase deploy"
+  },
+  "prettier": {},
+  "dependencies": {
+    "firebase-admin": "^9.4.2",
+    "firebase-functions": "^3.13.0"
+  }
 }
