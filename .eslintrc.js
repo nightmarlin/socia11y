@@ -16,6 +16,7 @@ module.exports = {
   },
   ignorePatterns: [
     "functions/lib/**/*", // Ignore built files.
+    "frontend/**/*", // Use separate config for frontend
   ],
   plugins: ["@typescript-eslint", "import"],
   rules: {
