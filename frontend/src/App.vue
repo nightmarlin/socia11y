@@ -1,27 +1,29 @@
 <template>
-  <v-app>
+  <v-app dark>
+    <TitleBar />
     <v-main>
-      <HelloWorld />
-      <Upload />
+      <v-container fluid>
+        <UploadCard />
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
-import Upload from "./components/Upload.vue";
+import TitleBar from "./components/TitleBar.vue";
+import UploadCard from "./components/UploadCard.vue";
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    HelloWorld,
-    Upload,
+    TitleBar,
+    UploadCard
   },
 
   data: () => ({
     //
-  }),
+  })
 });
 </script>
