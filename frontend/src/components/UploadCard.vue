@@ -1,22 +1,16 @@
 <template>
-  <v-row>
-    <v-col flex />
-    <v-col sm-4>
-      <v-card dark>
-        <v-card-title>
-          Upload File
-        </v-card-title>
-        <v-card-text>
-          <v-file-input @change="onSelected" />
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn light large @click="onUpload">Upload</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-    <v-col flex />
-  </v-row>
+  <v-card dark>
+    <v-card-title>
+      Upload File
+    </v-card-title>
+    <v-card-text>
+      <v-file-input @change="onSelected" />
+    </v-card-text>
+    <v-card-actions>
+      <v-spacer />
+      <v-btn light large @click="onUpload">Upload</v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script lang="ts">

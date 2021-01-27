@@ -3,7 +3,11 @@
     <TitleBar />
     <v-main>
       <v-container fluid>
-        <UploadCard />
+        <v-row>
+          <v-col sm="4">
+            <UploadCard />
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
