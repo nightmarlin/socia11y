@@ -9,5 +9,28 @@
   "engineStrict": true,
   "engines": {
     "node": "12.16.3"
+  },
+  "scripts": {
+    "build:frontend": "cd ./frontend; yarn run build; cd ../",
+    "serve:frontend": "cd ./frontend; yarn run serve; cd ../",
+    "build:functions": "cd ./functions; yarn run build; cd ../",
+    "serve:functions": "cd ./functions; yarn run serve; cd ../",
+    "start": "yarn build:frontend && yarn build:functions && firebase emulators:start",
+    "full-install": "yarn && cd ./functions && yarn && cd ../frontend && yarn && cd ../",
+    "full-deploy": "yarn build:functions && yarn build:frontend && firebase deploy"
+  },
+  "prettier": {},
+  "dependencies": {
+    "firebase-admin": "^9.4.2",
+    "firebase-functions": "^3.13.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "eslint": "^7.17.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.22.1",
+    "firebase-functions-test": "^0.2.3",
+    "typescript": "^4.1.3"
   }
 }
