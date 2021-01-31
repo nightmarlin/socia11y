@@ -33,19 +33,6 @@ import Vue from "vue";
 export default Vue.extend({
   name: "OptionCard",
 
-  /**
-   * "(): T => func" syntax allows type-checking of known properties by defining the well-known
-   * type T
-   */
-  data: (): { selectedFile?: File }  => ({}),
-  
-
-  methods: {
-    onConfirm() {
-      //Send to backend
-      console.log("Selected:" + this.selectedFile);
-    }
-  }
 });
 </script>
 
