@@ -13,6 +13,7 @@
         </v-row>
       </v-container>
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
@@ -21,6 +22,7 @@ import Vue from "vue";
 import TitleBar from "@/components/TitleBar.vue";
 import UploadCard from "@/components/UploadCard.vue";
 import OptionCard from "@/components/OptionCard.vue";
+import Footer from "@/components/Footer.vue";
 
 export default Vue.extend({
   name: "Home",
@@ -28,7 +30,8 @@ export default Vue.extend({
   components: {
     TitleBar,
     UploadCard,
-    OptionCard
+    OptionCard,
+    Footer
   },
 
   data: () => ({
