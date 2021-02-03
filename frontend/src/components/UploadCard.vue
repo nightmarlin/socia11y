@@ -8,7 +8,9 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn light large @click="onUpload">Upload</v-btn>
+      <router-link to="/evaluation">
+        <v-btn light large @click="onUpload">Upload</v-btn>
+      </router-link>
     </v-card-actions>
   </v-card>
 </template>

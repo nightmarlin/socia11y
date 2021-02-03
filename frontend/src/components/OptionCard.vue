@@ -18,7 +18,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <router-link to="/about">
+      <router-link to="/">
         <v-btn light large @click="onConfirm">Confirm</v-btn>
       </router-link>
     </v-card-actions>

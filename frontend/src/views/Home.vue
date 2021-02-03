@@ -7,9 +7,6 @@
           <v-col sm="4">
             <UploadCard />
           </v-col>
-          <v-col sm="8">
-            <OptionCard />
-          </v-col>
         </v-row>
       </v-container>
     </v-main>
@@ -21,7 +18,6 @@
 import Vue from "vue";
 import TitleBar from "@/components/TitleBar.vue";
 import UploadCard from "@/components/UploadCard.vue";
-import OptionCard from "@/components/OptionCard.vue";
 import Footer from "@/components/Footer.vue";
 
 export default Vue.extend({
@@ -30,7 +26,6 @@ export default Vue.extend({
   components: {
     TitleBar,
     UploadCard,
-    OptionCard,
     Footer
   },
 

@@ -3,9 +3,11 @@
     <TitleBar />
     <v-main>
       <v-container fluid>
-        <router-link to="/">
-          <v-btn light large @click="onConfirm">Go back</v-btn>
-        </router-link>
+        <v-row>
+          <v-col sm="8">
+            <OptionCard />
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
     <Footer />
@@ -15,13 +17,15 @@
 <script lang="ts">
 import Vue from "vue";
 import TitleBar from "@/components/TitleBar.vue";
+import OptionCard from "@/components/OptionCard.vue";
 import Footer from "@/components/Footer.vue";
 
 export default Vue.extend({
-  name: "About",
+  name: "Evaluation",
 
   components: {
     TitleBar,
+    OptionCard,
     Footer
   },
 
