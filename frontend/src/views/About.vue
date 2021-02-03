@@ -18,7 +18,7 @@ import TitleBar from "@/components/TitleBar.vue";
 import Footer from "@/components/Footer.vue";
 
 export default Vue.extend({
-  name: "Home",
+  name: "About",
 
   components: {
     TitleBar,
