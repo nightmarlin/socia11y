@@ -6,13 +6,18 @@
     <v-card-text>
       <!-- <v-checkbox label="Colour contrast"></v-checkbox> -->
       <!-- <v-checkbox label="Colourblindness"></v-checkbox> -->
-      <v-checkbox label="Readability"></v-checkbox>
+      <!-- <v-checkbox label="Readability"></v-checkbox>
       <v-checkbox label="Text proportion"></v-checkbox>
       <v-checkbox label="Sentence length"></v-checkbox>
       <v-checkbox label="Word complexity"></v-checkbox>
       <v-checkbox label="Font type"></v-checkbox>
-      <v-checkbox label="Font size"></v-checkbox>
-      <v-checkbox v-for="(prop, idx) in arr" :key="idx" v-model="prop.state" :label="arr.name"></v-checkbox>
+      <v-checkbox label="Font size"></v-checkbox> -->
+      <v-checkbox
+        v-for="criterion in criteria"
+        :key="criterion.name"
+        :label="criterion.name"
+        v-model="criterion.enabled"
+      />
       <h2>Do you have alt-text/an image description?</h2>
       <v-radio-group column>
         <v-radio label="Yes"></v-radio>
@@ -29,18 +34,27 @@
 <script lang="ts">
 import Vue from "vue";
 
+// let checkboxes: string[] = ["Colour contrast", "Colourblindness"];
+let criteria: { name: string; enabled: boolean }[] = [
+  { name: "Colour Contrast", enabled: false },
+  { name: "Colourblindness", enabled: false }
+];
 
 export default Vue.extend({
   name: "OptionCard",
 
-  data: {
-    arr: [
-      { name:"Colour contrast", state: false },
-      { name: "Colourblindness", state: false }]
-  }
+  data: function() {
+    return {
+      criteria
+    };
+  },
 
+  methods: {
+    onConfirm: function() {
+      console.log(this.criteria);
+    }
+  }
 });
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
