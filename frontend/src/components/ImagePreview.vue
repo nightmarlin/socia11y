@@ -10,6 +10,15 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "ImagePreview",
+
+  data: () => ({
+    //
+  })
+});
 </script>
 
 <style scoped>

@@ -14,6 +14,15 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "FeedbackDisplay",
+
+  data: () => ({
+    //
+  })
+});
 </script>
 
 <style scoped>
