@@ -1,7 +1,7 @@
 <template>
   <v-app-bar dark app height="600px">
       <v-container>
-        <h1>SOCIA11Y</h1>
+        <v-img max-width="450" src="@/images/socia11y_white.png" alt="Socia11y logo" class="center"></v-img>
         <h2>Upload a file to get started...</h2>
       </v-container>
   </v-app-bar>
@@ -20,7 +20,9 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-h1 {
-    font-size: 96px;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
