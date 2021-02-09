@@ -4,6 +4,8 @@
     <v-main>
       <v-container fluid>
         <v-row>
+          <v-col sm="2">
+            </v-col>
           <v-col sm="8">
             <OptionCard />
           </v-col>
