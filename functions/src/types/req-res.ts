@@ -6,6 +6,7 @@ export type RequestBody = {
   };
 
   image?: ImageBitmap; // TODO: Find a better type
+  overrideText?: string; // Testing only
 };
 
 export type ResponseBody = {
