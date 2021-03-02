@@ -6,7 +6,6 @@ export type RequestBody = {
   };
 
   image?: ImageBitmap; // TODO: Find a better type
-  altText?: string;
 };
 
 export type ResponseBody = {

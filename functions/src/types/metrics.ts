@@ -20,9 +20,7 @@ export type BaseMetric = {
 };
 
 export type TextMetric = {
-  [T in TextMetricTypes]?: BaseMetric & {
-    extractedFromImage: boolean;
-  };
+  [T in TextMetricTypes]?: BaseMetric;
 };
 
 export type ImageMetric = {

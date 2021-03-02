@@ -13,10 +13,12 @@ function review(sentence: string): number {
   }
 }
 
-export function processSentenceLength(
-  text: string,
-  source: "image" | "plaintext"
-): Metrics {
+/**
+ * Process sentence length evaluates the average length of sentences in the text
+ * @param text The text to evaluate
+ * @param source Where the text came from
+ */
+export function processSentenceLength(text: string): Metrics {
   const results = text.split(". ").map(review);
   const overallScore = results.reduce((prev, current) => prev + current, 0);
 
@@ -25,7 +27,6 @@ export function processSentenceLength(
       name: "Sentence Length",
       explanation: "",
       score: overallScore,
-      extractedFromImage: source === "image",
     },
   };
 }

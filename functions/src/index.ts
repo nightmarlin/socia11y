@@ -6,13 +6,12 @@ import { controller } from "./controller";
 
 const region = "europe-west2";
 
-export const ping = functions.region(region).https.onCall((data: unknown) => {
-  functions.logger.info("recieved ping", { data });
-
-  return { data };
+export const ping = functions.region(region).https.onRequest((req, res) => {
+  functions.logger.info("recieved ping", req);
+  res.send("Pong!");
 });
 
 export const process = functions.region(region).https.onRequest((req, res) => {
-  functions.logger.info("processing request", req, { structuredData: true });
+  functions.logger.info("processing request", req);
   res.send(controller(req.body));
 });

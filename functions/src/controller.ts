@@ -1,12 +1,11 @@
 import { textProcessor } from "./text-processing";
-import { RequestBody, Metrics } from "./types";
+import { RequestBody, ResponseBody, Metrics } from "./types";
 
-export function controller(request: RequestBody): Metrics {
-  const imageText = ""; // TODO: Extract text from image
-
+export function controller(request: RequestBody): ResponseBody {
   const imageStats: Metrics = {}; // TODO: Get Image stats
 
+  const imageText = "fhfashjjsfdajkbnvbasklihvsadnkl;vslnk"; // TODO: Extract text from image
   const textStats = textProcessor(request, imageText);
 
-  return { ...{ imageStats }, ...textStats };
+  return { metrics: { ...imageStats, ...textStats } };
 }
