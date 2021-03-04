@@ -17,6 +17,7 @@ export type BaseMetric = {
   name: string;
   score: string;
   explanation: string;
+  errorLocation: Array<number[]>;
 };
 
 export type TextMetric = {

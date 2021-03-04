@@ -2,41 +2,37 @@ import { Metrics } from "../types";
 import * as functions from "firebase-functions";
 
 function lowScore(length: number): number {
-  return length / 15;
+  return length / 15; //simply works out the percentage towards 15
 }
 
 function highScore(length: number): number {
-  // return (length / 15) * 100;
-  let returnable: number = 0;
+  let returnable: number = 0; //works out the percentage distance from 20 going to 40
   length = length - 20;
   if (length >= 20) {
-    return 0;
+    return 0; //if it is past 40 then it fails and gets auto 0
   } else {
-    returnable = length / 20;
-    functions.logger.info("recieved sentence", returnable, " length ", length);
-    returnable = 1 - returnable;
+    returnable = length / 20; //works as a percentage of 20
+    functions.logger.info("recieved sentence", returnable, " length ", length); //-------------------------------------log-------------------------------------\\
+    returnable = 1 - returnable; //inverts the percentage as closer to 20 the worse the score
     return returnable;
   }
 }
 
-function review(sentence: string): number {
-  const words = sentence.split(" "); //need to measure sentence length
+function review(sentence: string): number[] {
+  let resArr: Array<number> = []; //sets an array which will return sentence score and the length in characters
+  resArr.push(sentence.length); //adding the sentence length
+  functions.logger.info("length is", sentence.length); //-------------------------------------log-------------------------------------\\
+  const words = sentence.split(" "); //splotting at the spaces to count words
   if (words.length < 15) {
-    return lowScore(words.length);
+    resArr.push(lowScore(words.length)); //going to the different methods depending on if the sentence is too long or too short
+    return resArr;
   } else if (words.length > 20) {
-    return highScore(words.length);
+    resArr.push(highScore(words.length));
+    return resArr;
   } else {
-    return 1;
+    resArr.push(1); //ideal sentence length
+    return resArr;
   }
-  // if (words.length <= 20) {
-  //   return 1;
-  // } else if (words.length <= 30 && words.length > 20) {
-  //   return 0.7;
-  // } else if (words.length <= 40 && words.length > 30) {
-  //   return 0.3;
-  // } else {
-  //   return 0;
-  // }
 }
 
 /**
@@ -45,21 +41,33 @@ function review(sentence: string): number {
  * @param source Where the text came from
  */
 export function processSentenceLength(text: string): Metrics {
-  const sentences = text.split(". "); //.map(review);
-  const results: Array<number> = [];
+  const sentences = text.split(". "); //splitting the text block into sentences via full stop and space
+  const results: Array<number> = []; //setting up arrays, one for setence score, one for errors(bad scores)
+  const errorLog: Array<number[]> = [];
+  let textTrack: number = 0; //tracking the position of each sentence
   sentences.forEach((element) => {
-    review(element); //each thing should return tuple saying how long the sentence was to allow the thing to track the position of sentences in the larger string and then will use this to highlight position of any bad sentences
+    let feedBack: Array<number> = review(element); //gets array with sentence character length and score
+    if (feedBack[1] < 0.3) {
+      let errorItem: Array<number> = [textTrack, textTrack + feedBack[0]]; //if low score, it will log the location of the sentence
+      errorLog.push(errorItem);
+      functions.logger.info("track is", textTrack); //-------------------------------------log-------------------------------------\\
+      textTrack += feedBack[0] + 2; //increasing the tracker
+      functions.logger.info("track is", textTrack); //-------------------------------------log-------------------------------------\\
+      //-------------------------error involving the tracker not moving for bigger sentences-------------------------\\
+    }
+    results.push(feedBack[1]); //adding the score
   });
-  const overallScore = results
-    .reduce((prev, current) => prev + current, 0)
+  const overallScore = results //overall score for the text block
+    .reduce((prev, current) => prev + current, 0) //-------------------------need to ask lewis how to average this-------------------------\\
     .toFixed(3);
-  functions.logger.info("recieved sentence", results);
+  functions.logger.info("recieved sentence", results, " and ", errorLog); //-------------------------------------log-------------------------------------\\
 
   return {
     sentenceLength: {
       name: "Sentence Length",
       explanation: "",
-      score: overallScore, //need to add thing that will say where bad sentences are
+      score: overallScore,
+      errorLocation: errorLog,
     },
   };
 }
