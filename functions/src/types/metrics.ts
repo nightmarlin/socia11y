@@ -15,7 +15,7 @@ export type ImageMetricTypes = typeof imageMetricNames[number];
 
 export type BaseMetric = {
   name: string;
-  score: number;
+  score: string;
   explanation: string;
 };
 
