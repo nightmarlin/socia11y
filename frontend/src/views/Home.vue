@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <IndexTitleBar />
+    <LogoCard />
     <v-main>
       <v-container fluid>
         <v-row>
@@ -18,7 +18,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import IndexTitleBar from "@/components/IndexTitleBar.vue";
+import TitleBar from "@/components/TitleBar.vue";
+import LogoCard from "@/components/LogoCard.vue";
 import UploadCard from "@/components/UploadCard.vue";
 import Footer from "@/components/Footer.vue";
 
@@ -26,9 +27,10 @@ export default Vue.extend({
   name: "Home",
 
   components: {
-    IndexTitleBar,
+    TitleBar,
     UploadCard,
-    Footer
+    Footer,
+    LogoCard
   },
 
   data: () => ({
