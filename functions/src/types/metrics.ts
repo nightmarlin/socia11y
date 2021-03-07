@@ -13,15 +13,23 @@ export const imageMetricNames = [
 ] as const;
 export type ImageMetricTypes = typeof imageMetricNames[number];
 
+export function isTextMetric(o: unknown): o is TextMetricTypes {
+  return typeof o === "string" && o in textMetricNames;
+}
+export function isImageMetric(o: unknown): o is ImageMetricTypes {
+  return typeof o === "string" && o in imageMetricNames;
+}
+
 export type BaseMetric = {
   name: string;
   score: string;
   explanation: string;
-  errorLocation: Array<number[]>;
 };
 
 export type TextMetric = {
-  [T in TextMetricTypes]?: BaseMetric;
+  [T in TextMetricTypes]?: BaseMetric & {
+    errorLocations: { start: number; end: number }[];
+  };
 };
 
 export type ImageMetric = {

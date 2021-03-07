@@ -1,36 +1,49 @@
 import { Metrics } from "../types";
-// import * as functions from "firebase-functions";
+import { textProcessing as textExplain } from "../explanations";
+import * as functions from "firebase-functions";
 
 function lowScore(length: number): number {
-  return length / 15; //simply works out the percentage towards 15
+  return length / 15; // simply works out the percentage towards 15
 }
 
 function highScore(length: number): number {
-  let returnable: number = 0; //works out the percentage distance from 20 going to 40
   length = length - 20;
   if (length >= 20) {
-    return 0; //if it is past 40 then it fails and gets auto 0
-  } else {
-    returnable = length / 20; //works as a percentage of 20
-    returnable = 1 - returnable; //inverts the percentage as closer to 20 the worse the score
-    return returnable;
+    return 0; // if past 40 then it fails and gets auto 0
   }
+
+  return 1 - length / 20; // works as a percentage of 20, inverting the percentage as closer to 20 the worse the score
 }
 
-function review(sentence: string): number[] {
-  let resArr: Array<number> = []; //sets an array which will return sentence score and the length in characters
-  resArr.push(sentence.length); //adding the sentence length
-  const words = sentence.split(" "); //splotting at the spaces to count words
-  if (words.length < 15) {
-    resArr.push(lowScore(words.length)); //going to the different methods depending on if the sentence is too long or too short
-    return resArr;
+/**
+ * reviewSentence evaluates a single sentence in a piece of text and works out several pieces of information about it
+ * @param sentence The sentence to evaluate
+ */
+function reviewSentence(
+  sentence: string
+): {
+  score: number;
+  wordCount: number;
+  averageWordLength: number;
+} {
+  const words = sentence.split(" ");
+  let score = 0;
+
+  // going to the different methods depending on if the sentence is too long or too short
+  if (words.length < 10) {
+    score = lowScore(words.length);
   } else if (words.length > 20) {
-    resArr.push(highScore(words.length));
-    return resArr;
+    score = highScore(words.length);
   } else {
-    resArr.push(1); //ideal sentence length
-    return resArr;
+    score = 1; // ideal sentence length
   }
+
+  return {
+    score,
+    wordCount: words.length,
+    averageWordLength:
+      words.reduce((total, word) => total + word.length, 0) / words.length,
+  };
 }
 
 /**
@@ -39,30 +52,40 @@ function review(sentence: string): number[] {
  * @param source Where the text came from
  */
 export function processSentenceLength(text: string): Metrics {
-  const sentences = text.split(". "); //splitting the text block into sentences via full stop and space
-  const results: Array<number> = []; //setting up arrays, one for setence score, one for errors(bad scores)
-  const errorLog: Array<number[]> = [];
-  let textTrack: number = 0; //tracking the position of each sentence
-  sentences.forEach((element) => {
-    let feedBack: Array<number> = review(element); //gets array with sentence character length and score
-    if (feedBack[1] < 0.3) {
-      let errorItem: Array<number> = [textTrack, textTrack + feedBack[0]]; //if low score, it will log the location of the sentence
-      errorLog.push(errorItem);
+  functions.logger.debug("processing sentence length");
+
+  const delineators = /[!?.]\s?/; // Sentences end with any of ?, . or ! - split on those (and most will have a whitespace in them)
+  const sentences = text.split(delineators); // splitting the text block into sentences via delineators
+
+  const results: number[] = []; // setting up array for sentence score
+  const errorLog: { start: number; end: number }[] = []; // track failure locations
+
+  sentences.forEach((s) => {
+    const feedback = reviewSentence(s); // gets array with sentence character length and score
+
+    if (feedback.score < 0.3) {
+      // if low score, it will log the location of the sentence
+      const location = text.indexOf(s);
+      errorLog.push({
+        start: location,
+        end: location + s.length,
+      });
     }
-    textTrack += feedBack[0] + 2; //increasing the tracker
-    results.push(feedBack[1]); //adding the score
+
+    results.push(feedback.score); // adding the score
   });
+
+  // overall score for the text block
   const overallScore = (
-    results //overall score for the text block
-      .reduce((prev, current) => prev + current, 0) / results.length
+    results.reduce((total, current) => total + current, 0) / results.length
   ).toFixed(3);
 
   return {
     sentenceLength: {
       name: "Sentence Length",
-      explanation: "",
+      explanation: textExplain.sentenceLength.explanation,
       score: overallScore,
-      errorLocation: errorLog,
+      errorLocations: errorLog,
     },
   };
 }

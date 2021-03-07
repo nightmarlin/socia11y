@@ -11,7 +11,9 @@ export const ping = functions.region(region).https.onRequest((req, res) => {
   res.send("Pong!");
 });
 
-export const process = functions.region(region).https.onRequest((req, res) => {
-  functions.logger.info("processing request", req);
-  res.send(controller(req.body));
-});
+export const process = functions
+  .region(region)
+  .https.onRequest(async (req, res) => {
+    functions.logger.info("processing request", req);
+    res.send(await controller(req.body));
+  });

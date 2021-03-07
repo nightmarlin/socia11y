@@ -7,6 +7,13 @@ export {
   TextMetric,
   textMetricNames,
   TextMetricTypes,
+  isImageMetric,
+  isTextMetric,
 } from "./metrics";
 
-export { RequestBody, ResponseBody } from "./req-res";
+export {
+  RequestBody,
+  ResponseBody,
+  RequestOptions,
+  getActiveOptions,
+} from "./req-res";
