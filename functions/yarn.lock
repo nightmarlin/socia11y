@@ -157,6 +157,15 @@
     stream-events "^1.0.1"
     xdg-basedir "^4.0.0"
 
+"@google-cloud/vision@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@google-cloud/vision/-/vision-2.3.1.tgz#4cb6f5a8ecd3568e6fce0d72fd8220969c67590d"
+  integrity sha512-P9NXe7pExyZz2YDupUkaoaHwo+jhG0mzuuueoW1MOYQBIqxGqSdw4W+0sGz1EI2+SPCdf6pYA039ELS9RndqVA==
+  dependencies:
+    "@google-cloud/promisify" "^2.0.0"
+    google-gax "^2.9.2"
+    is "^3.3.0"
+
 "@grpc/grpc-js@~1.2.0":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.2.3.tgz#35dcbca3cb7415ef5ac6e73d44080ebcb44a4be5"
@@ -1511,6 +1520,11 @@ is-typedarray@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
+
+is@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/is/-/is-3.3.0.tgz#61cff6dd3c4193db94a3d62582072b44e5645d79"
+  integrity sha512-nW24QBoPcFGGHJGUwnfpI7Yc5CdqWNdsyHQszVE/z2pKHXzh7FZ5GWhJqSyaQ9wMkQnsTx+kAI8bHlCX4tKdbg==
 
 isarray@^1.0.0:
   version "1.0.0"
