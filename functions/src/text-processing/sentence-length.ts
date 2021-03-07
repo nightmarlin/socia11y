@@ -1,5 +1,5 @@
 import { Metrics } from "../types";
-import * as functions from "firebase-functions";
+// import * as functions from "firebase-functions";
 
 function lowScore(length: number): number {
   return length / 15; //simply works out the percentage towards 15
@@ -12,7 +12,6 @@ function highScore(length: number): number {
     return 0; //if it is past 40 then it fails and gets auto 0
   } else {
     returnable = length / 20; //works as a percentage of 20
-    functions.logger.info("recieved sentence", returnable, " length ", length); //-------------------------------------log-------------------------------------\\
     returnable = 1 - returnable; //inverts the percentage as closer to 20 the worse the score
     return returnable;
   }
@@ -21,7 +20,6 @@ function highScore(length: number): number {
 function review(sentence: string): number[] {
   let resArr: Array<number> = []; //sets an array which will return sentence score and the length in characters
   resArr.push(sentence.length); //adding the sentence length
-  functions.logger.info("length is", sentence.length); //-------------------------------------log-------------------------------------\\
   const words = sentence.split(" "); //splotting at the spaces to count words
   if (words.length < 15) {
     resArr.push(lowScore(words.length)); //going to the different methods depending on if the sentence is too long or too short
@@ -50,17 +48,14 @@ export function processSentenceLength(text: string): Metrics {
     if (feedBack[1] < 0.3) {
       let errorItem: Array<number> = [textTrack, textTrack + feedBack[0]]; //if low score, it will log the location of the sentence
       errorLog.push(errorItem);
-      functions.logger.info("track is", textTrack); //-------------------------------------log-------------------------------------\\
-      textTrack += feedBack[0] + 2; //increasing the tracker
-      functions.logger.info("track is", textTrack); //-------------------------------------log-------------------------------------\\
-      //-------------------------error involving the tracker not moving for bigger sentences-------------------------\\
     }
+    textTrack += feedBack[0] + 2; //increasing the tracker
     results.push(feedBack[1]); //adding the score
   });
-  const overallScore = results //overall score for the text block
-    .reduce((prev, current) => prev + current, 0) //-------------------------need to ask lewis how to average this-------------------------\\
-    .toFixed(3);
-  functions.logger.info("recieved sentence", results, " and ", errorLog); //-------------------------------------log-------------------------------------\\
+  const overallScore = (
+    results //overall score for the text block
+      .reduce((prev, current) => prev + current, 0) / results.length
+  ).toFixed(3);
 
   return {
     sentenceLength: {
