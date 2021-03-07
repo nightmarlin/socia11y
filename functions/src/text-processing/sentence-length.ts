@@ -54,15 +54,16 @@ function reviewSentence(
 export function processSentenceLength(text: string): Metrics {
   functions.logger.debug("processing sentence length");
 
-  const delineators = /[!?.]\s?/; // Sentences end with any of ?, . or ! - split on those (and most will have a whitespace in them)
+  const delineators = /[!?.]\s?/; // Sentences end with any of ?, . or ! - split on those (and most will have a whitespace after them)
   const sentences = text.split(delineators); // splitting the text block into sentences via delineators
 
   const results: number[] = []; // setting up array for sentence score
   const errorLog: { start: number; end: number }[] = []; // track failure locations
 
   sentences.forEach((s) => {
-    const feedback = reviewSentence(s); // gets array with sentence character length and score
+    if (s === "") return;
 
+    const feedback = reviewSentence(s); // gets object with data
     if (feedback.score < 0.3) {
       // if low score, it will log the location of the sentence
       const location = text.indexOf(s);

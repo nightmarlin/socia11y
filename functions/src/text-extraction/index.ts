@@ -6,7 +6,9 @@ export default async function (img?: Buffer): Promise<string> {
   }
 
   const visionClient = new vision.ImageAnnotatorClient();
-  const [result] = await visionClient.annotateImage(img);
+
+  const [result] = await visionClient.textDetection(img);
+  // result.textAnnotations?.map((annotation) => annotation.properties?.);
 
   return "";
 }
