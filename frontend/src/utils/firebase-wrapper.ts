@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import { EvaluationRequest, EvaluationResponse } from "../core-types";
+import { RequestBody, ResponseBody } from "../../../functions/src/types";
 
 export class Firebase {
   public readonly app: firebase.app.App;
@@ -33,12 +33,10 @@ export class Firebase {
   }
 
   /**
-   * evaluate
+   * process
    */
-  public async evaluate(
-    evalRequest: EvaluationRequest
-  ): Promise<EvaluationResponse> {
-    return (await this.functions.httpsCallable("evaluate")(evalRequest)).data;
+  public async process(evalRequest: RequestBody): Promise<ResponseBody> {
+    return (await this.functions.httpsCallable("process")(evalRequest)).data;
   }
 
   /**
