@@ -24,7 +24,11 @@ export async function textProcessor(
   }
 
   for (const opt of getActiveOptions(req.options)) {
-    functions.logger.debug("checking if text metric name", opt);
+    functions.logger.debug(
+      "checking if option is a known text metric name",
+      opt
+    );
+
     if (isTextMetric(opt)) {
       const evaluator = evaluators[opt];
 
