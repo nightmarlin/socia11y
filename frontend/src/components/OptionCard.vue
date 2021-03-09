@@ -2,21 +2,11 @@
   <v-card dark>
     <v-card-title>
       Feedback Options
-    </v-card-title>
-    <v-card-text>
-
-      <v-checkbox
-        v-for="criterion in criteria"
-        :key="criterion.name"
-        :label="criterion.name"
-        v-model="criterion.enabled"
-      />
-
       <v-col class="text-left">
         <v-dialog v-model="dialog" width="1000">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn light v-bind="attrs" v-on="on">
-              Metric Information
+            <v-btn dark v-bind="attrs" v-on="on">
+              <v-icon medium>mdi-information</v-icon>
             </v-btn>
           </template>
 
@@ -26,25 +16,53 @@
             </v-card-title>
             <v-card-text class="text-left">
               <h2>Colour contrast</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed lacus magna. Aenean at lacus volutpat lectus convallis viverra in ac dui. Integer quis nunc sem. Donec turpis mi, sollicitudin vel gravida id, congue id dolor. Aenean vitae tristique nisi. Donec volutpat tincidunt risus, lobortis suscipit diam fringilla vitae. Morbi dolor nunc, interdum vulputate leo in, tincidunt volutpat est. Donec tellus odio, ornare id volutpat ut, hendrerit a eros. Quisque nec magna efficitur, venenatis massa in, ullamcorper ligula. Nulla viverra odio in nisi dictum iaculis. Donec eu sapien tortor. Aliquam quis ligula sit amet nisl convallis feugiat. Vestibulum posuere risus non mauris facilisis rutrum. </p>
+              <p>People who suffer from less than perfect vision can find it difficult to
+read text that is a similar colour to the background it is on or when the backgroun
+is an image. To avoid this you should use solid backgrounds around text that are 
+a good contrast for the reader. examples of good contrast are black and white, 
+blue and yellow or maybe purple and green (these vary depending on the shade of the
+colour). A good test is if it is easy to read from a distance it is more likely to
+be okay.</p>
               <h2>Colourblindness</h2>
-              <p>Cras malesuada nunc a arcu facilisis, at tristique lacus bibendum. In massa mauris, fermentum et sem eget, aliquet cursus diam. Nullam efficitur at leo in placerat. Aliquam cursus scelerisque odio, aliquam feugiat velit dictum tincidunt. Cras fermentum lacus dui, pellentesque tempus quam posuere vel. Aliquam ut urna sed tortor porta rhoncus ac vitae ipsum. Ut magna nisi, molestie eget lacinia vitae, commodo non justo. Aliquam sed arcu eu risus finibus tempor. Cras eros nulla, finibus a enim ut, malesuada aliquet sapien. Ut molestie felis quis enim consectetur, sed ornare neque imperdiet. Nam auctor blandit pellentesque. Suspendisse rutrum erat finibus arcu tristique rutrum. Vivamus ac ipsum massa. Phasellus at rutrum arcu, id blandit augue. Donec facilisis pretium eleifend. </p>
-              <h2>Readability</h2>
-              <p>Integer id orci vel mi lacinia vehicula sit amet a quam. Nullam sem urna, bibendum nec metus ornare, condimentum egestas felis. Vestibulum ac viverra erat, sit amet dapibus leo. Sed aliquet maximus nibh, imperdiet imperdiet nibh pellentesque a. Suspendisse urna nibh, faucibus at nibh eu, vulputate luctus massa. Cras in quam quis sem faucibus imperdiet. Aenean posuere erat nec erat sollicitudin sollicitudin. </p>
+              <p>Some people who suffer from colour blindness can find it difficult to tell the difference
+between certain colours. Because of this it is important to avoid certain colour combinations
+to ensure that the content is accessible to them. (maybe include a link to something
+that shows how people see different colours)</p>
               <h2>Text proportion</h2>
-              <p>Vivamus faucibus ligula odio, nec vulputate lorem lobortis non. Aliquam eu diam maximus, ultricies velit non, congue urna. Sed condimentum auctor lobortis. Aenean vitae gravida tortor, eu eleifend ex. Mauris non ipsum interdum, tincidunt velit eu, elementum neque. Pellentesque vitae hendrerit magna. Mauris interdum sed neque et elementum. Fusce leo turpis, dictum vel nibh quis, fringilla ullamcorper ipsum. Aliquam vel mollis tortor, at posuere lorem. </p>
+              <p>The reason it is important to try and reduce the ammount of text is that big blocks
+of text can be both off putting and itimidating and can lead to people trying to skim
+the text and possibly missing important information. It can also make it harder
+to focus on the text.</p>
               <h2>Sentence length</h2>
-              <p>Integer et risus eros. Suspendisse potenti. Nam semper sodales tempus. Sed fringilla est vel lorem dignissim, vel pulvinar justo porttitor. Integer et ornare neque, euismod malesuada diam. Nunc mollis consequat ante quis aliquam. Quisque vitae rutrum nibh. Nulla a leo quam. Donec erat augue, interdum sit amet tortor in, elementum blandit leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer congue tellus ut ante congue, id volutpat velit condimentum. Vivamus ac urna massa. Curabitur malesuada quis nisi sed cursus. </p>
+              <p>Some people can struggle to understand and focus on overly complex sentences, this
+can lead to them not engaging or remembering the content they have just been shown.
+This can be avoided by using short sentences as much as possible to help keep the
+content easy to engage with. We are using 15-20 words as an average for how long a
+sentence should be.</p>
               <h2>Word complexity</h2>
-              <p>Suspendisse dignissim vel est ut pellentesque. Quisque erat nibh, fringilla sed luctus dapibus, vulputate luctus sapien. Aliquam vel dolor nisi. Proin cursus eu orci eget porta. Mauris non sollicitudin nunc. Cras sodales pretium justo id lobortis. Donec at purus nec sapien fringilla condimentum. Maecenas a metus euismod, lobortis est in, scelerisque lectus. Aliquam a suscipit nulla. Vestibulum id molestie neque, eu imperdiet lorem. Vivamus cursus magna lorem, nec convallis libero ullamcorper vitae. Maecenas ac facilisis odio, rutrum sodales arcu. Praesent rhoncus ex ut scelerisque sagittis. Nam risus justo, facilisis eu purus ut, tristique fermentum dolor. </p>
+              <p>To ensure people fully understand a text it is important to try and use easy to 
+understand words that are used in an every day context. Due to the complexity
+of this metric we are just going off word length the same way as with sentences
+under the assumption that shorter words tend to be less complicated. This helps
+the reader maintain focus and not have to spend time looking up words to understand 
+the full text. It is also sometimes beneficial to people who suffer from dslexia.</p>
               <h2>Font type</h2>
-              <p>Praesent in vestibulum leo, vel tempor tellus. Aenean a nisl quis sem elementum vehicula sit amet id nisi. Maecenas a erat at nulla vulputate faucibus non sed tortor. Donec ut velit ipsum. Integer blandit elit at tincidunt finibus. Nulla finibus orci at egestas aliquet. Nam consequat non risus sit amet vestibulum. Duis volutpat metus leo, ac pellentesque tellus viverra et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse efficitur neque et urna congue varius. Quisque enim ligula, faucibus ac consectetur at, sollicitudin sit amet est. Aliquam orci justo, molestie sit amet interdum ac, elementum id ante. Vestibulum rutrum tellus ut ipsum porta congue. Quisque faucibus ligula sed aliquam vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+              <p>Reccomend certain fonts as good and bad</p>
               <h2>Font size</h2>
-              <p>Cras dapibus sem nec mattis venenatis. Nullam a vulputate purus, at auctor tellus. Phasellus ultrices efficitur lorem, eget aliquet ligula. Integer hendrerit condimentum magna id ullamcorper. Nullam volutpat velit dui, eget finibus justo rhoncus non. Nulla aliquet lorem ac sapien pulvinar, sed lobortis ante mattis. Aliquam convallis ex quis rutrum eleifend. Morbi dapibus quam quis mauris consequat, vel pulvinar lorem facilisis. Nulla molestie eget mi id hendrerit. Etiam ut ex velit. </p>
+              <p>Ensure the font size and thickness is sufficient compared to the overall image</p>
             </v-card-text>
           </v-card>
         </v-dialog>
       </v-col>
+    </v-card-title>
+    <v-card-text>
+
+      <v-checkbox
+        v-for="criterion in criteria"
+        :key="criterion.name"
+        :label="criterion.name"
+        v-model="criterion.enabled"
+      />
 
       <v-col class="text-left">
         <h2>Do you have alt-text/an image description?</h2>
@@ -71,7 +89,6 @@ import Vue from "vue";
 let criteria: { name: string; enabled: boolean }[] = [
   { name: "Colour Contrast", enabled: false },
   { name: "Colourblindness", enabled: false },
-  { name: "Readbility", enabled: false },
   { name: "Text proportion", enabled: false },
   { name: "Sentence length", enabled: false },
   { name: "Word complexity", enabled: false },
