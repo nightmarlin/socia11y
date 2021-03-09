@@ -3,6 +3,7 @@
     <v-card-title>
       Feedback Options
     </v-card-title>
+
     <v-card-text>
       <v-checkbox
         v-for="option of chosenOptions"
@@ -14,13 +15,13 @@
       <v-col class="text-left">
         <v-dialog v-model="dialog" width="1000">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn dark v-bind="attrs" v-on="on">
+            <v-btn light v-bind="attrs" v-on="on">
               <v-icon medium>mdi-information</v-icon>
             </v-btn>
           </template>
 
           <v-card>
-            <v-card-title> Metric Information </v-card-title>
+            <v-card-title>Metric Information</v-card-title>
             <v-card-text class="text-left">
               <h2>Colour contrast</h2>
               <p>
@@ -91,14 +92,6 @@
           </v-card>
         </v-dialog>
       </v-col>
-    </v-card-title>
-    <v-card-text>
-      <v-checkbox
-        v-for="criterion in criteria"
-        :key="criterion.name"
-        :label="criterion.name"
-        v-model="criterion.enabled"
-      />
 
       <v-col class="text-left">
         <h2>Do you have alt-text/an image description?</h2>
