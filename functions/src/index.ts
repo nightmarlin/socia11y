@@ -6,14 +6,14 @@ import { controller } from "./controller";
 
 const region = "europe-west2";
 
-export const ping = functions.region(region).https.onRequest((req, res) => {
-  functions.logger.info("recieved ping", req);
+export const ping = functions.region(region).https.onRequest((_, res) => {
+  functions.logger.info("recieved ping");
   res.send("Pong!");
 });
 
 export const process = functions
   .region(region)
   .https.onRequest(async (req, res) => {
-    functions.logger.info("processing request", req);
+    functions.logger.info("received process request");
     res.send(await controller(req.body));
   });

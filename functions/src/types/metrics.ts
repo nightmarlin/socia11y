@@ -14,10 +14,10 @@ export const imageMetricNames = [
 export type ImageMetricTypes = typeof imageMetricNames[number];
 
 export function isTextMetric(o: unknown): o is TextMetricTypes {
-  return typeof o === "string" && o in textMetricNames;
+  return typeof o === "string" && textMetricNames.map(String).includes(o);
 }
 export function isImageMetric(o: unknown): o is ImageMetricTypes {
-  return typeof o === "string" && o in imageMetricNames;
+  return typeof o === "string" && imageMetricNames.map(String).includes(o);
 }
 
 export type BaseMetric = {
