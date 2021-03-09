@@ -3,7 +3,7 @@ import { textProcessing as textExplain } from "../explanations";
 import * as functions from "firebase-functions";
 
 function lowScore(length: number): number {
-  return length / 15; // simply works out the percentage towards 15
+  return length / 10; // simply works out the percentage towards 15
 }
 
 function highScore(length: number): number {
