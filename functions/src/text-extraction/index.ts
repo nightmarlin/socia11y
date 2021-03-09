@@ -1,7 +1,7 @@
 // import * as vision from "@google-cloud/vision";
 import * as functions from "firebase-functions";
 
-export default async function (img?: Buffer): Promise<string> {
+export default async function (img?: File): Promise<string> {
   functions.logger.debug("processing image");
   if (!img) {
     return "";

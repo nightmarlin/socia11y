@@ -4,13 +4,11 @@
       Upload File
     </v-card-title>
     <v-card-text>
-      <v-file-input @change="onSelected" />
+      <v-file-input :multiple="false" @change="onSelected" />
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <router-link to="/evaluation">
-        <v-btn light large @click="onUpload">Upload</v-btn>
-      </router-link>
+      <v-btn light large @click="onConfirm">Upload</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -21,19 +19,16 @@ import Vue from "vue";
 export default Vue.extend({
   name: "UploadCard",
 
-  /**
-   * "(): T => func" syntax allows type-checking of known properties by defining the well-known
-   * type T
-   */
-  data: (): { selectedFile?: File } => ({}),
   methods: {
-    onSelected(e: File) {
-      console.log(e);
-      this.selectedFile = e;
+    onSelected(f: File) {
+      if (f) {
+        this.$store.commit("setFile", { file: f });
+      }
     },
-    onUpload() {
-      //Send to backend
-      console.log("Uploaded:" + this.selectedFile);
+    onConfirm() {
+      if (this.$store.state.uploadFile) {
+        this.$router.push({ path: "/evaluation" });
+      }
     }
   }
 });

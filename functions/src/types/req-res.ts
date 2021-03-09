@@ -22,7 +22,7 @@ export type RequestBody = {
   /**
    * The image to evaluate, in Buffer format
    */
-  image?: Buffer;
+  image?: File;
 
   /**
    * For testing only - allows the program to act as if it's extracted text from an image

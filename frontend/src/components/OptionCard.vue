@@ -2,6 +2,15 @@
   <v-card dark>
     <v-card-title>
       Feedback Options
+    </v-card-title>
+    <v-card-text>
+      <v-checkbox
+        v-for="option of chosenOptions"
+        :key="option.id"
+        :label="toCapitalisedName(option.id)"
+        v-model="option.value"
+      />
+
       <v-col class="text-left">
         <v-dialog v-model="dialog" width="1000">
           <template v-slot:activator="{ on, attrs }">
@@ -111,31 +120,48 @@
 <script lang="ts">
 import Vue from "vue";
 
-// let checkboxes: string[] = ["Colour contrast", "Colourblindness"];
-let criteria: { name: string; enabled: boolean }[] = [
-  { name: "Colour Contrast", enabled: false },
-  { name: "Colourblindness", enabled: false },
-  { name: "Text proportion", enabled: false },
-  { name: "Sentence length", enabled: false },
-  { name: "Word complexity", enabled: false },
-  { name: "Font type", enabled: false },
-  { name: "Font size", enabled: false },
-];
-
 export default Vue.extend({
   name: "OptionCard",
 
-  data: function () {
+  mounted() {
+    this.$store.commit("resetOptions");
+  },
+
+  data(): {
+    dialog: boolean;
+    chosenOptions: {
+      id: string;
+      value: boolean;
+    }[];
+  } {
     return {
-      criteria,
+      dialog: false,
+      chosenOptions: [
+        { id: "sentenceLength", value: false },
+        { id: "contrast", value: false }
+      ]
     };
   },
 
   methods: {
-    onConfirm: function () {
-      console.log(this.criteria);
+    onConfirm() {
+      for (const option of this.chosenOptions) {
+        this.$store.commit("setOption", { k: option.id, v: option.value });
+      }
+      console.log(this.$store.state);
     },
-  },
+
+    toCapitalisedName: (s: string): string =>
+      s
+        .split(/(?=[A-Z])/)
+        .map(substr =>
+          substr.length > 0
+            ? substr.charAt(0).toUpperCase() + substr.slice(1)
+            : substr
+        )
+        .join(" ")
+        .trim()
+  }
 });
 </script>
 
