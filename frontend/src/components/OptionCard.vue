@@ -11,52 +11,79 @@
           </template>
 
           <v-card>
-            <v-card-title>
-              Metric Information
-            </v-card-title>
+            <v-card-title> Metric Information </v-card-title>
             <v-card-text class="text-left">
               <h2>Colour contrast</h2>
-              <p>People who suffer from less than perfect vision can find it difficult to
-read text that is a similar colour to the background it is on or when the backgroun
-is an image. To avoid this you should use solid backgrounds around text that are 
-a good contrast for the reader. examples of good contrast are black and white, 
-blue and yellow or maybe purple and green (these vary depending on the shade of the
-colour). A good test is if it is easy to read from a distance it is more likely to
-be okay.</p>
+              <p>
+                For people who may suffer from certain visual impairments, it
+                can be difficult to differentiate between certain colours. This
+                can be mean certain colours will more easily blend together when
+                similar shades, or just be harder to read due to the lack of
+                contrast. It can also mean that text on an image background is
+                hard to read. It is important to make sure you use solid colours
+                with good contrast to the text colours so that everyone is able
+                to easily make sense of your content.
+              </p>
               <h2>Colourblindness</h2>
-              <p>Some people who suffer from colour blindness can find it difficult to tell the difference
-between certain colours. Because of this it is important to avoid certain colour combinations
-to ensure that the content is accessible to them. (maybe include a link to something
-that shows how people see different colours)</p>
-              <h2>Text proportion</h2>
-              <p>The reason it is important to try and reduce the ammount of text is that big blocks
-of text can be both off putting and itimidating and can lead to people trying to skim
-the text and possibly missing important information. It can also make it harder
-to focus on the text.</p>
+              <p>
+                For people who are colour blind some colours do not appear as
+                they would to someone with normal colour perception. This can
+                mean that certain colours, which may have very good contrast to
+                someone, might be almost identical to someone else. It is
+                important to keep this in mind when making content and choosing
+                colour pallets so that everyone can engage with your content.
+              </p>
+              <h2>Overall text quantity</h2>
+              <p>
+                When it comes to getting information across it is important to
+                make the information as easy to take in as possible. One of the
+                barriers to this can be big blocks of text which are difficult
+                to find key information in. To avoid this, graphics should have
+                a relatively low amount of text on them, and just have key
+                information that the user needs.
+              </p>
               <h2>Sentence length</h2>
-              <p>Some people can struggle to understand and focus on overly complex sentences, this
-can lead to them not engaging or remembering the content they have just been shown.
-This can be avoided by using short sentences as much as possible to help keep the
-content easy to engage with. We are using 15-20 words as an average for how long a
-sentence should be.</p>
+              <p>
+                For readability of text it can be helpful to not have sentences
+                that are too long. This can help make the text easier to follow
+                without it becoming confusing. Equally using too many short
+                sentences can also be detrimental to the readability as they can
+                make text feel clunky and disjointed. Ideally a sentence should
+                aim to convey a meaningful amount of information without
+                becoming too long.
+              </p>
               <h2>Word complexity</h2>
-              <p>To ensure people fully understand a text it is important to try and use easy to 
-understand words that are used in an every day context. Due to the complexity
-of this metric we are just going off word length the same way as with sentences
-under the assumption that shorter words tend to be less complicated. This helps
-the reader maintain focus and not have to spend time looking up words to understand 
-the full text. It is also sometimes beneficial to people who suffer from dslexia.</p>
+              <p>
+                To ensure people fully understand a text it is important to try
+                and use easy to understand words that are used in an every day
+                context. Due to the complexity of this metric we are just going
+                off word length the same way as with sentences under the
+                assumption that shorter words tend to be less complicated. This
+                helps the reader maintain focus rather than having to spend time
+                looking up words to understand the full text. It is also
+                sometimes beneficial to people who suffer from dyslexia.
+              </p>
               <h2>Font type</h2>
-              <p>Reccomend certain fonts as good and bad</p>
+              <p>
+                Font type is a very important factor when it comes to how
+                readable text is. To make your text as readable as possible try
+                and use clear fonts without styles that imitate hand written or
+                italics.
+              </p>
               <h2>Font size</h2>
-              <p>Ensure the font size and thickness is sufficient compared to the overall image</p>
+              <p>
+                Another factor for making text readable is the size of the font.
+                This can be dependant on the font type that is being used, but
+                generally we would recommend a minimum font size of 12 with
+                relatively thick lettering to make sure the text stands out
+                easily against the bakcground.
+              </p>
             </v-card-text>
           </v-card>
         </v-dialog>
       </v-col>
     </v-card-title>
     <v-card-text>
-
       <v-checkbox
         v-for="criterion in criteria"
         :key="criterion.name"
@@ -71,7 +98,6 @@ the full text. It is also sometimes beneficial to people who suffer from dslexia
           <v-radio label="No"></v-radio>
         </v-radio-group>
       </v-col>
-
     </v-card-text>
     <v-card-actions>
       <v-spacer />
@@ -93,23 +119,23 @@ let criteria: { name: string; enabled: boolean }[] = [
   { name: "Sentence length", enabled: false },
   { name: "Word complexity", enabled: false },
   { name: "Font type", enabled: false },
-  { name: "Font size", enabled: false }
+  { name: "Font size", enabled: false },
 ];
 
 export default Vue.extend({
   name: "OptionCard",
 
-  data: function() {
+  data: function () {
     return {
-      criteria
+      criteria,
     };
   },
 
   methods: {
-    onConfirm: function() {
+    onConfirm: function () {
       console.log(this.criteria);
-    }
-  }
+    },
+  },
 });
 </script>
 
