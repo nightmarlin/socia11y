@@ -40,7 +40,7 @@ export default Vue.extend({
       .then(res => (resBody = res))
       .catch(console.log);
 
-    this.$state.commit("setResponse", { body: resBody });
+    this.$store.commit("setResponse", { body: resBody });
 
     if (resBody) {
       this.$router.push({ path: "/feedback" });
