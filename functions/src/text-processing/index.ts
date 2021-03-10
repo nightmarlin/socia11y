@@ -8,11 +8,25 @@ import {
 } from "../types";
 import { processSentenceLength } from "./sentence-length";
 
+/**
+ * A function that can evaluate a piece of text and return a metric
+ */
 type Evaluator = (text: string) => Promise<Metrics> | Metrics;
+
+/**
+ * The collection of known evaluators
+ */
 const evaluators: Partial<Record<TextMetricTypes, Evaluator>> = {
   sentenceLength: processSentenceLength,
 };
 
+/**
+ * Uses all reqested known evaluators on text extracted from the image
+ *
+ * @param req the original request body
+ * @param text the text extracted from the image
+ * @returns metrics based on the text
+ */
 export async function textProcessor(
   req: RequestBody,
   text: string
@@ -34,6 +48,9 @@ export async function textProcessor(
 
       if (evaluator) {
         functions.logger.debug("evaluating", opt);
+
+        // Merge result and evaluator result. Evaluators can return multiple metrics,
+        // so spread them in
         res = { ...res, ...(await evaluator(text)) };
       }
     }

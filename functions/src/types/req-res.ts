@@ -4,6 +4,11 @@ export type RequestOptions = {
   [T in ImageMetricTypes | TextMetricTypes]?: boolean;
 };
 
+/**
+ * Retrieves a list of the active options to check
+ * @param opts the request options to check
+ * @returns an array of active options ( all optionNames where { optionName: true } )
+ */
 export function getActiveOptions(opts: RequestOptions): string[] {
   return Object.entries(opts)
     .filter(([, v]) => typeof v !== undefined && v !== null && v) // only defined non-null truthy values
@@ -22,7 +27,7 @@ export type RequestBody = {
   /**
    * The image to evaluate, in Buffer format
    */
-  image?: File;
+  image?: Buffer;
 
   /**
    * For testing only - allows the program to act as if it's extracted text from an image

@@ -1,14 +1,16 @@
+/**
+ * Entrypoint for firebase functions. This file is the only one with access to the sender's IP and
+ * sensitive data. Note that we only care about the data sent in request bodies, if at all.
+ */
+
 import * as functions from "firebase-functions";
 import { controller } from "./controller";
-
-// Start writing Firebase Functions
-// https://firebase.google.com/docs/functions/typescript
 
 const region = "europe-west2";
 
 export const ping = functions.region(region).https.onRequest((_, res) => {
   functions.logger.info("recieved ping");
-  res.send("Pong!");
+  res.send("pong!");
 });
 
 export const process = functions

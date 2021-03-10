@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 type State = {
   requestOptions: { [k: string]: boolean };
-  uploadFile?: File;
+  uploadBuffer?: Buffer;
   cachedResponse?: any;
 };
 
@@ -13,7 +13,7 @@ export default new Vuex.Store({
   state(): State {
     return {
       requestOptions: {},
-      uploadFile: undefined
+      uploadBuffer: undefined
     };
   },
 
@@ -28,9 +28,9 @@ export default new Vuex.Store({
       state.requestOptions = {};
     },
 
-    setFile(state: State, { file }: { file: File }) {
-      console.log("set file", file);
-      state.uploadFile = file;
+    setBuffer(state: State, { buffer }: { buffer: Buffer }) {
+      console.log("set buffer", buffer);
+      state.uploadBuffer = buffer;
     },
 
     setResponse(state: State, { body }: { body: any }) {

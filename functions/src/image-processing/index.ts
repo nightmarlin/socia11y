@@ -7,14 +7,14 @@ import {
   ImageMetricTypes,
 } from "../types";
 
-type Evaluator = (img: File) => Promise<Metrics> | Metrics;
+type Evaluator = (img: Buffer) => Promise<Metrics> | Metrics;
 const evaluators: Partial<Record<ImageMetricTypes, Evaluator>> = {
   // TODO: Add image evaluators here
 };
 
 export async function imageProcessor(
   req: RequestBody,
-  img?: File
+  img?: Buffer
 ): Promise<Metrics> {
   functions.logger.debug("processing image");
   let res: Metrics = {};

@@ -22,11 +22,17 @@ export default Vue.extend({
   methods: {
     onSelected(f: File) {
       if (f) {
-        this.$store.commit("setFile", { file: f });
+        let b: Buffer;
+        f.arrayBuffer().then(ab => (b = Buffer.from(ab)));
+
+        if (b) {
+          this.$store.commit("setBuffer", { buffer: b });
+        }
       }
     },
+
     onConfirm() {
-      if (this.$store.state.uploadFile) {
+      if (this.$store.state.uploadBuffer) {
         this.$router.push({ path: "/evaluation" });
       }
     }

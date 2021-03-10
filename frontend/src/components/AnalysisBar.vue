@@ -34,7 +34,7 @@ export default Vue.extend({
     const firebase = new Firebase();
     firebase
       .process({
-        image: this.$store.state.uploadFile,
+        image: this.$store.state.uploadBuffer,
         options: this.$store.state.requestOptions
       })
       .then(res => (resBody = res))
