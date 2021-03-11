@@ -4,7 +4,7 @@
       Upload File
     </v-card-title>
     <v-card-text>
-      <v-file-input :multiple="false" @change="onSelected" />
+      <v-file-input accept="image/*" :multiple="false" @change="onSelected" />
     </v-card-text>
     <v-card-actions>
       <v-spacer />
@@ -20,14 +20,18 @@ export default Vue.extend({
   name: "UploadCard",
 
   methods: {
-    onSelected(f: File) {
-      if (f) {
-        let b: Buffer;
-        f.arrayBuffer().then(ab => (b = Buffer.from(ab)));
-
-        if (b) {
-          this.$store.commit("setBuffer", { buffer: b });
-        }
+    onSelected(f: File[]) {
+      if (f.length > 0) {
+        const store = this.$store;
+        f[0]
+          .arrayBuffer()
+          .then(ab => {
+            const b = Buffer.from(ab);
+            if (b) {
+              store.commit("setBuffer", { buffer: b });
+            }
+          })
+          .catch(console.log);
       }
     },
 
