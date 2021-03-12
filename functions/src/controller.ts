@@ -5,7 +5,8 @@ import { textProcessor } from "./text-processing";
 import { RequestBody, ResponseBody, Metrics } from "./types";
 
 export async function controller(request: RequestBody): Promise<ResponseBody> {
-  functions.logger.debug("handling request", request);
+  functions.logger.debug("controller");
+  functions.logger.debug({ opts: request.options, hasImage: !!request.image });
 
   // require an image
   if (typeof request.image === undefined || request.image === null) {
@@ -18,21 +19,18 @@ export async function controller(request: RequestBody): Promise<ResponseBody> {
   // Retrieve text
   const extracted = await textExtractor(request.image);
 
-  // Use override text if present else use extracted text (if present)
-  const imageText = request.overrideText
-    ? request.overrideText
-    : extracted.mainText
-    ? extracted.mainText
-    : "";
-
   // Process extracted text
-  const textStats = await textProcessor(request, imageText);
+  const textStats = extracted.text
+    ? await textProcessor(request, extracted.text)
+    : {};
 
-  functions.logger.debug("complete");
-  return {
+  const res = {
     // combine metrics - names don't clash so this is safe
     metrics: { ...imageStats, ...textStats },
     // Log the text we retrieved
-    extractedImageText: imageText[0],
+    extractedImageText: extracted.text ? extracted.text : "",
   };
+
+  functions.logger.debug("complete", res);
+  return res;
 }

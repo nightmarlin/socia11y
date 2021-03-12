@@ -4,11 +4,16 @@
       Upload File
     </v-card-title>
     <v-card-text>
-      <v-file-input accept="image/*" :multiple="false" @change="onSelected" />
+      <v-file-input
+        label="Pick an image..."
+        accept="image/*"
+        :multiple="false"
+        @change="onSelected"
+      />
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn light large @click="onConfirm">Upload</v-btn>
+      <v-btn v-show="hasFile" light large @click="onConfirm">Upload</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -18,6 +23,13 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "UploadCard",
+
+  mounted: function() {
+    this.$store.commit("resetBuffer");
+    this.$store.commit("resetFile");
+  },
+
+  data: () => ({ hasFile: false }),
 
   methods: {
     onSelected(f: File[]) {
@@ -29,6 +41,8 @@ export default Vue.extend({
             const b = Buffer.from(ab);
             if (b) {
               store.commit("setBuffer", { buffer: b });
+              store.commit("setFile", { file: f[0] });
+              this.hasFile = true;
             }
           })
           .catch(console.log);
@@ -36,14 +50,10 @@ export default Vue.extend({
     },
 
     onConfirm() {
-      if (this.$store.state.uploadBuffer) {
+      if (this.$store.state.uploadBuffer && this.$store.state.file) {
         this.$router.push({ path: "/evaluation" });
       }
     }
   }
 });
 </script>
-
-<style scoped>
-/* Styles declared here affect only this component */
-</style>

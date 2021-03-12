@@ -19,15 +19,19 @@ export class Firebase {
       VUE_APP_MEASUREMENT_ID: measurementId
     } = process.env;
 
-    this.app = firebase.initializeApp({
-      apiKey,
-      authDomain,
-      projectId,
-      storageBucket,
-      messagingSenderId,
-      appId,
-      measurementId
-    });
+    if (firebase.apps.length === 0) {
+      this.app = firebase.initializeApp({
+        apiKey,
+        authDomain,
+        projectId,
+        storageBucket,
+        messagingSenderId,
+        appId,
+        measurementId
+      });
+    } else {
+      this.app = firebase.app();
+    }
 
     this.functions = this.app.functions("europe-west2");
   }
@@ -36,7 +40,8 @@ export class Firebase {
    * process
    */
   public async process(evalRequest: RequestBody): Promise<ResponseBody> {
-    return (await this.functions.httpsCallable("process")(evalRequest)).data;
+    return await (await this.functions.httpsCallable("process")(evalRequest))
+      .data;
   }
 
   /**

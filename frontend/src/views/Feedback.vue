@@ -2,33 +2,33 @@
   <v-app dark>
     <TitleBar />
     <v-main>
-      <v-container fluid>
+      <v-container fill-height class="d-inline-flex justify-center">
         <v-row>
-            <v-col sm="1">
-            </v-col>
-            <v-col sm="5">
-              <ImagePreview />
-              <OptionCard />
-            </v-col>
-            <v-col sm="5">
-              <FeedbackDisplay />
-            </v-col>
-            <v-col sm="1">
-            </v-col>
+          <v-col md="6">
+            <ImagePreview />
+          </v-col>
+
+          <v-col md="6">
+            <FeedbackDisplay />
+          </v-col>
+        </v-row>
+
+        <v-row class="justify-center">
+          <v-col md="8">
+            <OptionCard />
+          </v-col>
         </v-row>
       </v-container>
     </v-main>
-    <Footer />
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import TitleBar from "@/components/TitleBar.vue";
-import ImagePreview from "@/components/ImagePreview.vue"
-import OptionCard from "@/components/OptionCard.vue";
-import FeedbackDisplay from "@/components/FeedbackDisplay.vue";
-import Footer from "@/components/Footer.vue";
+import TitleBar from "../components/TitleBar.vue";
+import ImagePreview from "../components/ImagePreview.vue";
+import OptionCard from "../components/OptionCard.vue";
+import FeedbackDisplay from "../components/FeedbackDisplay.vue";
 
 export default Vue.extend({
   name: "Feedback",
@@ -37,8 +37,7 @@ export default Vue.extend({
     TitleBar,
     ImagePreview,
     OptionCard,
-    FeedbackDisplay,
-    Footer
+    FeedbackDisplay
   },
 
   data: () => ({
@@ -47,5 +46,4 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -17,7 +17,9 @@
     "serve:functions": "cd ./functions; yarn run serve; cd ../",
     "start": "yarn build:frontend && yarn build:functions && firebase emulators:start",
     "full-install": "yarn && cd ./functions && yarn && cd ../frontend && yarn && cd ../",
-    "full-deploy": "yarn build:functions && yarn build:frontend && firebase deploy"
+    "full-deploy": "yarn build:functions && yarn build:frontend && firebase deploy",
+    "deploy:functions": "yarn build:functions && firebase deploy --only functions",
+    "deploy:frontend": "yarn build:frontend && firebase deploy --only hosting"
   },
   "prettier": {},
   "dependencies": {

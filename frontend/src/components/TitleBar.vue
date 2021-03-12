@@ -1,6 +1,13 @@
 <template>
   <v-app-bar dark app>
-    <v-app-bar-title><v-img max-width="175" src="@/images/socia11y_long_2.png" alt="Socia11y logo"></v-img></v-app-bar-title>
+    <v-app-bar-title>
+      <v-img
+        max-width="175"
+        src="@/images/socia11y_long_2.png"
+        alt="Socia11y logo"
+        @click="goHome"
+      />
+    </v-app-bar-title>
   </v-app-bar>
 </template>
 
@@ -10,8 +17,10 @@ import Vue from "vue";
 export default Vue.extend({
   name: "TitleBar",
 
-  data: () => ({
-    //
-  })
+  methods: {
+    goHome() {
+      this.$router.push("/");
+    }
+  }
 });
 </script>

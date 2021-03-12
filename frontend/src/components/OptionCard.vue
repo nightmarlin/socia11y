@@ -1,22 +1,16 @@
 <template>
   <v-card dark>
     <v-card-title>
-      Feedback Options
-    </v-card-title>
+      <v-col align="left">
+        Feedback Options
+      </v-col>
 
-    <v-card-text>
-      <v-checkbox
-        v-for="option of chosenOptions"
-        :key="option.id"
-        :label="toCapitalisedName(option.id)"
-        v-model="option.value"
-      />
-
-      <v-col class="text-left">
-        <v-dialog v-model="dialog" width="1000">
+      <v-col align="right">
+        <v-dialog v-model="dialog">
           <template v-slot:activator="{ on, attrs }">
             <v-btn light v-bind="attrs" v-on="on">
-              <v-icon medium>mdi-information</v-icon>
+              <v-icon left>mdi-information</v-icon>
+              About Our Metrics
             </v-btn>
           </template>
 
@@ -86,26 +80,30 @@
                 This can be dependant on the font type that is being used, but
                 generally we would recommend a minimum font size of 12 with
                 relatively thick lettering to make sure the text stands out
-                easily against the bakcground.
+                easily against the background.
               </p>
             </v-card-text>
           </v-card>
         </v-dialog>
       </v-col>
+    </v-card-title>
 
-      <v-col class="text-left">
-        <h2>Do you have alt-text/an image description?</h2>
-        <v-radio-group column>
-          <v-radio label="Yes"></v-radio>
-          <v-radio label="No"></v-radio>
-        </v-radio-group>
-      </v-col>
+    <v-card-text>
+      <v-checkbox
+        v-for="option of chosenOptions"
+        :key="option.id"
+        :label="toCapitalisedName(option.id)"
+        v-model="option.value"
+        :disabled="isReadOnly"
+      />
     </v-card-text>
+
     <v-card-actions>
-      <v-spacer />
-      <router-link to="/analysis">
-        <v-btn light large @click="onConfirm">Confirm</v-btn>
-      </router-link>
+      <v-col>
+        <router-link v-show="!isReadOnly" to="/analysis">
+          <v-btn light block @click="onConfirm">Confirm</v-btn>
+        </router-link>
+      </v-col>
     </v-card-actions>
   </v-card>
 </template>
@@ -117,7 +115,21 @@ export default Vue.extend({
   name: "OptionCard",
 
   mounted() {
-    this.$store.commit("resetOptions");
+    console.log("route name", this.$route.name);
+    if (this.$route.name === "Evaluation") {
+      this.$store.commit("resetOptions");
+    } else {
+      for (const [id, value] of Object.entries(
+        this.$store.state.requestOptions
+      )) {
+        this.chosenOptions = this.chosenOptions.map(elem =>
+          elem.id === id && typeof value === "boolean"
+            ? { id, value }
+            : { id: elem.id, value: elem.value }
+        );
+      }
+      this.isReadOnly = true;
+    }
   },
 
   data(): {
@@ -126,13 +138,15 @@ export default Vue.extend({
       id: string;
       value: boolean;
     }[];
+    isReadOnly: boolean;
   } {
     return {
       dialog: false,
       chosenOptions: [
         { id: "sentenceLength", value: false },
         { id: "contrast", value: false }
-      ]
+      ],
+      isReadOnly: false
     };
   },
 
@@ -157,10 +171,3 @@ export default Vue.extend({
   }
 });
 </script>
-
-<style scoped>
-.v-btn {
-  margin-bottom: 25px;
-  margin-top: 25px;
-}
-</style>

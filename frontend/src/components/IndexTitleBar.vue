@@ -1,9 +1,15 @@
 <template>
   <v-app-bar dark app height="600px">
-      <v-container>
-        <v-img max-width="450" src="@/images/socia11y_white.png" alt="Socia11y logo" class="center"></v-img>
-        <h2>Upload a file to get started...</h2>
-      </v-container>
+    <v-container>
+      <v-img
+        max-width="450"
+        src="@/images/socia11y_white.png"
+        alt="Socia11y logo"
+        class="center"
+      />
+      <h2>The Social Media Accessibility Evaluator</h2>
+      <h3>Upload a file to get started...</h3>
+    </v-container>
   </v-app-bar>
 </template>
 
@@ -11,11 +17,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "IndexTitleBar",
-
-  data: () => ({
-    //
-  })
+  name: "IndexTitleBar"
 });
 </script>
 

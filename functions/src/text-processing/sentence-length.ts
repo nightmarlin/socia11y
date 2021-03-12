@@ -78,8 +78,9 @@ export function processSentenceLength(text: string): Metrics {
 
   // overall score for the text block
   const overallScore = (
-    results.reduce((total, current) => total + current, 0) / results.length
-  ).toFixed(3);
+    (results.reduce((total, current) => total + current, 0) / results.length) *
+    100
+  ).toFixed(1);
 
   return {
     sentenceLength: {

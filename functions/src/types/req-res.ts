@@ -25,14 +25,9 @@ export type RequestBody = {
   options: RequestOptions;
 
   /**
-   * The image to evaluate, in Buffer format
+   * The image to evaluate, in base64 format
    */
-  image?: Buffer;
-
-  /**
-   * For testing only - allows the program to act as if it's extracted text from an image
-   */
-  overrideText?: string;
+  image?: string;
 };
 
 /**

@@ -64,14 +64,7 @@ export type TextMetric = {
  * Adds additional properties to the Base Metric to allow for image region identification
  */
 export type ImageMetric = {
-  [T in ImageMetricTypes]?: BaseMetric & {
-    focusRegion: {
-      x: number;
-      y: number;
-      height: number;
-      width: number;
-    };
-  };
+  [T in ImageMetricTypes]?: BaseMetric;
 };
 
 /**

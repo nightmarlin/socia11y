@@ -5,23 +5,15 @@
 
 import * as functions from "firebase-functions";
 import { controller } from "./controller";
-import * as cors from "cors";
 
-const corsHandler = cors({ origin: true });
 const region = "europe-west2";
 
-export const ping = functions.region(region).https.onRequest((req, res) =>
-  corsHandler(req, res, async () => {
-    functions.logger.info("recieved ping");
-    res.send("pong!");
-  })
-);
+export const ping = functions.region(region).https.onCall(() => {
+  functions.logger.info("recieved ping");
+  return "pong!";
+});
 
-export const process = functions
-  .region(region)
-  .https.onRequest(async (req, res) =>
-    corsHandler(req, res, async () => {
-      functions.logger.info("received process request");
-      res.send(await controller(req.body));
-    })
-  );
+export const process = functions.region(region).https.onCall(async (data) => {
+  functions.logger.info("received process request");
+  return await controller(data);
+});
