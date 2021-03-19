@@ -5,7 +5,39 @@
 ## Using SociA11Y
 
 Go to <https://socia11y.web.app/>. That's it. That's the post! If you aren't a dev then you can stop
-reading now!
+reading now! We're a web app, so as long as you have a browser you should be able to use it!
+
+> Testing has only been carried out on Google Chrome due to resource limitations. We recommend using
+> Google Chrome for best results.
+
+## Section Authors
+
+Files and folders omitted from this diagram should be assumed to belong to their parent folder's author. If left unspecified, folders and their contents should be assumed to belong to their parent folder's author.
+
+```yaml
+socia11y/:
+- frontend/: George Moore
+  - src/:
+    - assets/:
+    - components/:
+      - AnalysisBar.vue: Lewis Miller
+      - OptionCard.vue: Luke Halpin
+    - config/:
+    - images/:
+    - plugins/:
+    - router/:
+    - store/: Lewis Miller
+    - utils/:  Lewis Miller
+    - views/:
+- functions/: Lewis Miller
+  - src/:
+    - explanations/: Luke Halpin
+    - image-processing/:
+    - text-extraction/:
+    - text-processing/: Luke Halpin
+    - types/:
+      - metrics.ts: Luke Halpin & Lewis Miller
+```
 
 ## Required dev dependencies
 
